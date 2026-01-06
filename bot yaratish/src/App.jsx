@@ -1,40 +1,43 @@
 import React, { useState } from 'react';
-import './App.css';
 import axios from 'axios';
+import './App.css';
 
 const App = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
-  const [phone, setPhone] = useState(""); 
+  const [phone, setPhone] = useState("");
 
   const SendMessage = (e) => {
     e.preventDefault();
 
-    const token = "8577663803:AAHSI4cayUCJzdb1YpViVDyAx9Osu5xhUqQ";
-    const chatId = 6417763668;
+    // .env fayldan ma'lumotlarni o'qib olish
+    const token = import.meta.env.VITE_TELEGRAM_TOKEN;
+    const chatId = import.meta.env.VITE_CHAT_ID;
+    
+    // Telegram API URL
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
-  
-    const text = ` Yangi xabar:\n\n Ism: ${name}\n Familiya: ${lastname}\n Tel: ${phone}`;
+    // Xabar matni
+    const text = `🚀 Yangi xabar:\n\n👤 Ism: ${name}\n👥 Familiya: ${lastname}\n📞 Tel: ${phone}`;
 
     axios.post(url, {
       chat_id: chatId,
       text: text
     })
     .then(() => {
-      alert("Ma'lumotlar yuborildi!");
+      alert("Ma'lumotlar muvaffaqiyatli yuborildi!");
       setName("");
       setLastname("");
-      setPhone(""); 
+      setPhone("");
     })
     .catch((error) => {
-      console.error(error);
-      alert("Xatolik yuz berdi!");
+      console.error("Xatolik yuz berdi:", error);
+      alert("Xabar yuborishda xatolik! Token yoki Chat ID ni tekshiring.");
     });
   }
 
   return (
-    <div className='form-container' >
+    <div className="form-container">
       <h2>Ro'yxatdan o'tish</h2>
       <form onSubmit={SendMessage}>
         <input 
@@ -44,7 +47,7 @@ const App = () => {
           onChange={(e) => setName(e.target.value)} 
           required 
         />
-        <br /><br />
+        
         <input 
           type="text" 
           placeholder='Familiya' 
@@ -52,17 +55,14 @@ const App = () => {
           onChange={(e) => setLastname(e.target.value)} 
           required 
         />
-        <br /><br />
         
-       
         <input 
           type="tel" 
-          placeholder='+998 () _ _ _  _ _  _ _' 
+          placeholder='Telefon (masalan: +998901234567)' 
           value={phone} 
           onChange={(e) => setPhone(e.target.value)} 
           required 
         />
-        <br /><br />
 
         <button type="submit">Jo'natish</button>
       </form>
