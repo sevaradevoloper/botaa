@@ -5,7 +5,7 @@ import axios from 'axios';
 const App = () => {
   const [name, setName] = useState("");
   const [lastname, setLastname] = useState("");
-  const [phone, setPhone] = useState(""); // 1. Telefon uchun yangi state
+  const [phone, setPhone] = useState(""); 
 
   const SendMessage = (e) => {
     e.preventDefault();
@@ -14,8 +14,8 @@ const App = () => {
     const chatId = 6417763668;
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
 
-    // 2. Xabar matniga telefonni qo'shdik
-    const text = `🚀 Yangi xabar:\n\n👤 Ism: ${name}\n👥 Familiya: ${lastname}\n📞 Tel: ${phone}`;
+  
+    const text = ` Yangi xabar:\n\n Ism: ${name}\n Familiya: ${lastname}\n Tel: ${phone}`;
 
     axios.post(url, {
       chat_id: chatId,
@@ -25,7 +25,7 @@ const App = () => {
       alert("Ma'lumotlar yuborildi!");
       setName("");
       setLastname("");
-      setPhone(""); // 3. Yuborgandan keyin tozalash
+      setPhone(""); 
     })
     .catch((error) => {
       console.error(error);
@@ -54,7 +54,7 @@ const App = () => {
         />
         <br /><br />
         
-        {/* 4. Telefon raqam uchun input */}
+       
         <input 
           type="tel" 
           placeholder='+998 () _ _ _  _ _  _ _' 
