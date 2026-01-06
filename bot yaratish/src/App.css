@@ -1,0 +1,73 @@
+/* Umumiy sahifani markazga keltirish */
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center; /* Gorizontal markaz */
+  align-items: center;     /* Vertikal markaz */
+  min-height: 100vh;
+  background: #f4f7f6;     /* Yengil kulrang fon */
+  font-family: 'Arial', sans-serif;
+}
+
+/* Forma konteyneri */
+.form-container {
+  background: #ffffff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 380px; /* Forma kengligi */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Ichidagi elementlarni markazga tekislaydi */
+}
+
+.form-container h2 {
+  margin-bottom: 44px;
+  color: #333;
+}
+
+/* Forma elementlarini o'raydigan teg */
+form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4px; /* Inputlar orasidagi vertikal masofa */
+}
+
+/* Inputlarni stili */
+input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box; /* Padding kenglikka ta'sir qilmasligi uchun */
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #007bff; /* Fokus bo'lganda ko'k rang */
+}
+
+/* Tugma stili */
+button {
+  width: 100%;
+  padding: 14px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 10px; /* Tugma va oxirgi input orasi */
+}
+
+button:hover {
+  background-color: #0056b3;
+}
