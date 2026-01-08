@@ -11,8 +11,8 @@ const App = () => {
     e.preventDefault();
 
     // .env fayldan ma'lumotlarni o'qib olish
-    const token = import.meta.env.VITE_TELEGRAM_TOKEN;
-    const chatId = import.meta.env.VITE_CHAT_ID;
+    const token = "8577663803:AAGrY0UgDZmaFS8JiktFczwVueFBjx4mDnw";
+    const chatId = 6417763668;
     
     // Telegram API URL
     const url = `https://api.telegram.org/bot${token}/sendMessage`;
